@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Quotes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@1,7..72,200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
+    <style>
+      body {
+         margin: 0;
+        background-image: url("images/background-image101.png");
+        background-size: cover;
+        color: #eee;
+      }
+      .quote-container101 {
+        width: 50%;
+        margin: 100px auto;
+        padding: 50px;
+        position: relative;
+        background-image: linear-gradient(to top, rgba(15, 38, 53, 0.62), #153866);
+        border-radius: 5px;
+        box-shadow: 0 5px 20px 0 rgba(250, 251, 255, 0.509);
+        backdrop-filter: blur(5px);
+      }
+      .quote101 {
+        letter-spacing: 1px;
+        color: #eee;
+        font-size: 36px;
+        font-weight: bold;
+        font-family: 'Literata', serif;
+        margin-bottom: 25px;
+      }
+      .quote102 {
+        letter-spacing: 1px;
+        color: #eee;
+        font-size: 36px;
+        font-weight: bold;
+        font-family: 'Literata', serif;
+        margin-bottom: 25px;
+      }
+
+      .author101 {
+        letter-spacing: 4px;
+        font-size: 15px;
+        font-family: 'Arima Madurai', cursive;
+        font-style: italic;
+        text-align: right;
+      }
+      footer a{
+       font-size: 15px;
+       font-family: 'Tilt Warp', cursive;
+       position: fixed;
+       bottom: 0;
+       width: 100%;
+       text-align: center;
+       background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.62), #153866);
+      }
+
+      footer a{
+      padding: 20px;
+      color: #ffffff;
+      text-decoration: none;
+      }
+      footer a:hover {
+      text-decoration: underline;
+      }   
+ </style>
+  </head>
+  <body>
+    <div class="quote-container101">
+      <div class="quote101">
+        "The attainment of intellectual understanding without its practical application is an endeavor in vain."
+      </div>
+      <div class="quote102">
+        "Education does not merely prepare individuals for life, but it constitutes an integral part of life itself."
+      </div>
+      <div class="author101">- Rover James Bendaña</div>
+    </div>
+    <footer>
+<a href="https://facebook.com/roverjames.bendana">Author: Rover James Bendaña</a></footer>
+    <script>
+      const quote1 = document.querySelector('.quote101');
+      const quote2 = document.querySelector('.quote102');
+      const author1 = document.querySelector('.author101');
+      const text1 = quote1.innerHTML;
+      const text2 = quote2.innerHTML;
+      const text5 = author1.innerHTML;
+      let i = 1;
+
+      function type() {
+  if (i < text1.length) {
+    author1.style.display = "none";
+    quote1.innerHTML = text1.substring(0, i+1);
+    quote2.innerHTML = "";
+    i++;
+    setTimeout(type, 50);
+  } else if (i === text1.length) {
+    quote2.style.opacity = "1";
+    i++;
+    setTimeout(type, 1200);
+  } else if (i > text1.length && i < text1.length + text2.length) {
+    quote2.innerHTML = text2.substring(0, i-text1.length);
+    i++;
+    setTimeout(type, 50);
+  } else if (i === text1.length + text2.length) {
+    author1.style.display = "block";
+    setTimeout(function() {
+      author1.style.opacity = "1";
+    }, 500);
+  }
+}    
+      type();
+    </script>
+  </body>
+</html>
